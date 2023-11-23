@@ -1,0 +1,313 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700;900&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+            integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="./styles.css">
+        <title>rphoto</title>
+    </head>
+    <body>
+        <header class="header">
+        
+           <div class="container header-container" >
+        <nav class="navigation">
+            <a class="logo link" href=""><span class="logo-part">Web</span>Studio</a>
+            <ul class="nav-list list">
+                <li class="nav-list-item">
+                    <a href="./index.html" class="nav-list link current">Студія</a>
+                </li>
+                <li class="nav-list-item">
+                    <a href="./portfolio.html" class="nav-list link">Портфоліо</a>
+                </li>
+                <li class="nav-list-item">
+                    <a href="" class="nav-list link">Контакти</a>
+                </li>
+               
+               
+
+                <!----модальне вікно писати вкінці перед/body-->
+               
+           
+
+          
+<!------------------------------------------>
+<!----модальне вікно писати вкінці перед/body-->
+
+<button class="modal-btn" data-open-modal> відкрити модалку</button>
+<div class="backdrop is-hidden" data-backdrop>
+    <div class="modal">
+
+
+
+        <form class="form js-speaker-form" autocomplete="off">
+            <div class="form-field">
+                <label for="name">Імя</label>
+                <input type="text" name="name" id="name" placeholder="Іван Іванович" autofocus />
+            </div>
+            <div class="form-field">
+                <label for="tel">Телефон</label>
+                <input type="tel" name="tel" id="tel" placeholder="+380" />
+            </div>
+            <div class="form-field">
+                <label for="mail">Пошта</label>
+                <input type="email" name="mail" id="mail" autocomplete="on" />
+            </div>
+        
+        
+            <div role="group" class="group">
+                <h2 class="group-title"> Тема доклада</h2>
+                <ul class="topic-options list">
+                    <li> <input type="checkbox" name="topic" value="html" id="html" />
+                        <label for="html">HTML</label>
+                    </li>
+                    <li> <input type="checkbox" name="topic" value="css" id="css" />
+                        <label for="css">CSS</label>
+                    </li>
+                    <li><input type="checkbox" name="topic" value="js" id="js" />
+                        <label for="js">JavaScript</label>
+                    </li>
+                </ul>
+            </div>
+        
+            <div role="group" class="group">
+                <h2 class="group-title"> Ваш професійний рівень</h2>
+                <ul class="topic-options list">
+                    <li><input type="radio" name="" value="junior" id="junior" />
+                        <label for="junior">Junior</label>
+                    </li>
+                    <li><input type="radio" name="" value="middle" id="middle" />
+                        <label for="middle">Middle</label>
+                    </li>
+                    <li><input type="radio" name="" value="senior" id="senior" />
+                        <label for="senior">Senior</label>
+                    </li>
+                </ul>
+            </div>
+        
+            <div class="form-field">
+                <label for="date"> Дата доклада</label>
+                <input type="date" name="date" id="date" class="date" />
+            </div>
+            <div class="form-field">
+                <label for="pdf">Завантажити копію доклада в pdf</label>
+                <input type="file" name="pdf" id="pdf" />
+            </div>
+            <div class="form-field">
+                <label for="comment"> Залиште коментар</label>
+                <textarea class="comment" name="comment" id="comment" cols="30" rows="6"></textarea>
+            </div>
+            <div class="form-field">
+                <input type="checkbox" name="policy" id="policy" />
+                <label for="policy"> погоджуюсь</label>
+            </div>
+                           
+            <button type="submit">Залишити заявку</button>
+        </form>
+
+
+
+
+
+        <button data-close-modal>закрити</button>
+    </div>
+</div>
+<script>
+    const refs = {
+        openModalBtn: document.querySelector("[data-open-modal]"),
+        closeModalBtn: document.querySelector("[data-close-modal]"),
+        backdrop: document.querySelector("[data-backdrop]"),
+    };
+
+    refs.openModalBtn.addEventListener("click", toggleModal);
+    refs.closeModalBtn.addEventListener("click", toggleModal);
+
+    refsbackdrop.addEventListener("click", logBackdropClick);
+
+    function toggleModal() {
+        refs.backdrop.classList.toggle("is-hidden");
+    }
+
+    function logBackdropClick() {
+        console.log("Це клік в бекдроп");
+    }
+</script>
+</ul>
+</nav>
+
+<!------------------------------------------>
+
+
+           
+           <div>
+            <ul class="menu">
+                <li class="menu-item">
+                    <a href="" class="menu-link">Комплектуючі</a>
+                    <ul class="submenu">
+                        <li><a href="">Процесори</a></li>
+                        <li><a href="">Монітори</a></li>
+                        <li><a href="">Відеокарти</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="" class="menu-link">Товари для дому</a>
+                    <ul class="submenu">
+                        <li><a href="">Фени</a></li>
+                        <li><a href="">Кондиціонери</a></li>
+                        <li><a href="">Декор</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="" class="menu-link">Побутова техніка</a>
+                   
+                    <ul class="submenu">
+                        <li><a href="">Холодильники</a></li>
+                            <li><a href="">Плити</a></li>
+                                <li><a href="">Духовки</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+           </div>
+            
+        
+        <ul class="contact list">
+            <li class="contactlist"> <a href="mailto:info@devstudio.com" class="contact-list mail link">
+                    <svg class="contact-list-icon">
+                        <use href="./images/sprite.svg#icon-mail">
+                        </use>
+                    </svg>
+                    info@devstudio.com</a>
+            </li>
+            <li class="contactlist"><a href="tel:+380961111111" class="contact-list tel link">
+                    <svg class="contact-list-icon">
+                        <use href="./images/sprite.svg#icon-tel">
+                        </use>
+                    </svg>
+                    +38 096 111 11 11</a>
+            </li>
+        </ul>
+      
+        </div>
+        </header>
+            <main>
+<section class="gallery">
+    <div class="container">
+        <ul class="gallery-list">
+            <li class="gallery-list-item">
+                <a class="gallery-list-link" href=""> <img src="./images/IMG_8973-1024x683.jpg" alt=""></a>
+            </li>
+            <li class="gallery-list-item">
+                <a class="gallery-list-link" href=""> <img src="./images/IMG_8973-1024x683.jpg" alt=""></a>
+            </li>
+            <li class="gallery-list-item">
+                <a class="gallery-list-link" href=""> <img src="./images/IMG_8973-1024x683.jpg" alt=""></a>
+            </li>
+            <li class="gallery-list-item">
+                <a class="gallery-list-link" href=""> <img src="./images/IMG_8973-1024x683.jpg" alt=""></a>
+            </li>
+        </ul>
+    <button class="btn2">
+        <a class="btn2-link" href="">Купити</a>
+    </button>
+   
+
+</div>
+</section>
+
+
+
+
+<!----js показує в браузері шо ми ввелиб писати вкінці перед/body-->
+<script>
+    (() => {
+        document
+        .querySelector('.js-speaker-form')
+        .addEventListener('submit', e => {
+            e.preventDefault();
+
+            new FormData(e.currentTarget).forEach((value, name) =>
+            console.log('${name}: ${value}'),
+            );
+        });
+    })();
+</script>
+<!-------------------------------------------->
+
+
+
+
+            </main>
+        <footer class="footer">
+            <!--Секція контакти-->
+            <div class="container">
+        
+                <div class="footer-container">
+                    <div>
+                        <a class="footer-logo link" href="./index.html"><span class="logo-part">Web</span>Studio</a>
+        
+                        <address class="adress">
+                            <ul class="adress-list list">
+                                <li class="adress-list-item"> <a href="https://goo.gl/maps/hzJKrvGwyvVixg5J7"
+                                        class="adress-title link" target="_blank"> м. Київ,
+                                        пр-т Лесі Українки, 26
+                                    </a> </li>
+                                <li class="adress-list-item"> <a href="mailto:info@devstudio.com"
+                                        class="adress-contakt link">mailto:info@devstudio.com</a></li>
+                                <li class="adress-list-item"> <a href="tel:+380961111111" class="adress-contakt link">+38
+                                        096 111 11
+                                        11</a> </li>
+                            </ul>
+                        </address>
+                    </div>
+                    <div class="social">
+                        <h3 class="social-title">ПРИЄДНУЙТЕСЬ</h3>
+                        <ul class="social-icon">
+                            <li class="social-icon-propertis list"><a href="http://instagram.com" class="social-link">
+                                    <svg class="social-list-icon" width="20" height="20">
+                                        <use href="./images/sprite.svg#icon-instagram">
+                                        </use>
+                                    </svg>
+                                </a>
+        
+                            </li>
+                            <li class="social-icon-propertis list"><a href="http://twitter.com" class="social-link">
+                                    <svg class="social-list-icon" width="20" height="20">
+                                        <use href="./images/sprite.svg#icon-Vector">
+                                        </use>
+                                    </svg>
+                                </a>
+        
+                            </li>
+                            <li class="social-icon-propertis list"><a href="http://ifacebook.com" class="social-link">
+                                    <svg class="social-list-icon" width="20" height="20">
+                                        <use href="./images/sprite.svg#icon-f">
+                                        </use>
+                                    </svg>
+                                </a>
+        
+                            </li>
+                            <li class="social-icon-propertis list"><a href="http://in.com" class="social-link">
+                                    <svg class="social-list-icon" width="20" height="20">
+                                        <use href="./images/sprite.svg#icon-in">
+                                        </use>
+                                    </svg>
+                                </a>
+        
+                            </li>
+                        </ul>
+                    </div>
+        
+                </div>
+            </div>
+        </footer>
+    </body>
+    </html>
