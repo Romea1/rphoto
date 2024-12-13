@@ -212,17 +212,20 @@ const cars = [
 ];
  function createMarkup(cars) { // cars - array
     const result = cars.map(carData => {
-        const { car, type, price, img } = carData;// Деструктуризація
+      const { id = 'none', car, type, price, img } = carData;// Деструктуризація// сказали перебери мені масив за допомогою map , 
+       // на кожній ітерації ми отримуємо обєкт нашого автомобіля, деструктуризеємо кожен ключ і для нього створи таку розмітку
         // console.log(carData)
-        return `<li>                               
-        <img src="${img}" alt="${type}" class="car-image" />
+        return `<li data-id='${id}'>                               
+        <img src="${img}" alt="${type}" class="car-image" /> 
         <h2 class="car-title">${car}</h2>
         <h3 class="car-type">${type}</h3>
         <span class="car-price">${price}</span>
-        </li>`;                         //Повернеться нам результат пошуку,Те шо ми отримаємо в результаті
+        <div class='js-favorite'>✩</div>
+        </li>`;                         
     });
     //  console.log(result);
-    return result.join('');
+   return result.join('');  ///перетворюємо масив в рядок бо insertAdjacentHTML, innerHTML працює з рядками , а map повертає нам масив. 
+    //Тому ми за допомогою JOIN зєднуємо елементи масиву в рядок, щоб підлаштуватись що очікує insertAdjacentHTML або innerHTML//
 }
 
 const list = document.querySelector('.js-list');   //Захвачуєм <ul>
@@ -230,15 +233,11 @@ const markup = createMarkup(cars);
 
 list.insertAdjacentHTML('beforeend', markup);  //Вставляємо <li> в  <ul> // beforeend, beforebegin, afterbegin, afterend-вказує де розміщувати //
 
-////*********************************************** */
-//////////ТУТ РУГАЄТЬСЯ///////
-/////коли відкрита інша сторінка, не може найти ---Uncaught TypeError: list is null---||||||||||\\\
-/////////////////////////////////////////////////
 
-const form = document.querySelector('.js-form');
-const formButton = document.querySelector('.car-button');
+const form = document.querySelector('.js-form');  /////// створюємо пошук/////
 const formSelect = document.querySelector('.car-select');
 const carInput = document.querySelector('.car-input');
+const formButton = document.querySelector('.car-button'); 
 
 form.addEventListener('submit', onSubmitHandler);
 
@@ -249,28 +248,60 @@ function onSubmitHandler (event) {
     const selectValue = formSelect.value; // 'car' or 'type'
 
     const result = cars.filter(car => { // result - filtered array
-        return car[selectValue].toLowerCase().includes(inputValue.trim().toLowerCase());
+        return car[selectValue].toLowerCase().includes(inputValue.trim().toLowerCase());//trim- убираєм пробіл///
     })
     
 
-    list.innerHTML = createMarkup(result);
+  list.innerHTML = createMarkup(result);//Повернеться нам результат пошуку,Те шо ми отримаємо в результаті
+   
+}
+//Додаємо список обраних автомобілів///
+const favoriteList = document.querySelector('.js-favorite-list');
+list.addEventListener('click', onClick);  //Додали слухача на клік li
+ function onClick(event) {
+  //  console.log(event.currentTarget);
+  
+   if (event.target.classList.contains('js-favorite')) {
+     event.target.classList.add('js-favorite-active'); // Робим шоб зірочка була активна, додаємо клас з іншим кольором
+  //  console.log(event.target)   // Якщо натиснуди на зірочку, тоді шось робимо
+  //  const id = event.target.closest('li');   // той елемент який викликав подію (зірочка),
+   //вказуємо метод closest, вказуємо який елемент нам потрібен(li), тобто дай мені першу бітьківську лішку
+   const {id} = event.target.closest('li').dataset; //Деструктуризуємо , кажемо віддай мені з моєї лішки з dataset мій id
+   
+     console.log(id);
+     const { car, type } = cars.find(({ id: carId }) => carId === Number(id));//З масиву cars за допомогою методу find знаходимо наш автомобіль по id.
+     //але в нас вже проблема з назвати, тому ми деструктуризуємо як id і змінимо назву на carID. І вказуємо що наш carId має співпадати з тим id по якому ми клікнули(carId === Number(id))
+     //Але дата атрибут нам завжди повертає рядок тому потрібно приводити до числа(Number(id) )
+     addFavorite(`${car}${type}`)
+  
+ }
+  }
+function addFavorite(currentCar) {
+  favoriteList.insertAdjacentHTML('beforeend',`<li>${currentCar}</li>`) // додаєм розмітку у вигляді лішки
 }
 
 
+
+
+
+
+
+
+
 ////////////Відкрити, Закрити Модалку/////////////
-// const refs = {
-//   openModalBtn: document.querySelector('[data-action="open-modal"]'),
-//   closeModalBtn: document.querySelector('[data-action="close-modal"]'),
-//   backdrop: document.querySelector('.js-backdrop'),
-// };
-// refs.openModalBtn.addEventListener('click', onOpenModal);
-// refs.closeModalBtn.addEventListener('click', onCloseModal)
-// function onOpenModal(){
-//   document.body.classList.add('show-modal');
-// }
-// function onCloseModal() {
-//   document.body.classList.remove('show-modal');
-// }
+const refs = {
+  openModalBtn: document.querySelector('[data-action="open-modal"]'),
+  closeModalBtn: document.querySelector('[data-action="close-modal"]'),
+  backdrop: document.querySelector('.js-backdrop'),
+};
+refs.openModalBtn.addEventListener('click', onOpenModal);
+refs.closeModalBtn.addEventListener('click', onCloseModal)
+function onOpenModal(){
+  document.body.classList.add('show-modal');
+}
+function onCloseModal() {
+  document.body.classList.remove('show-modal');
+}
 ////////////********END****Відкрити, Закрити Модалку/////////////
 
 //////////*******END automobile *********////////////

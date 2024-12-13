@@ -864,3 +864,19 @@ body.show-modal .modal{
  .social-link:focus .social-list-icon {
      fill: var(--primary-white-color);
  }
+/******** JS-test*******/
+.tog {
+    display: none;
+}
+
+.js-favorite {
+    /**розмір зірочки*/
+    font-size: 50px;
+}
+
+.js-favorite-active {
+    /**колір зірочки*/
+    font-size: 50px;
+    color: red;
+    /* background-color: red; */
+}
