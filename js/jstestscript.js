@@ -21,16 +21,28 @@ function onFormSubmit(event) {
     const { email, password }=event.currentTarget.elements;  //робим деструктуризацію, elements є тільки на form,  в input нема
   console.log(email.value);
   console.log(password.value);
-    const data = {                  //Відправляєм дані на  БЕКЕНД  ///////
-        email: email.value,
-        password: password.value,
-    };
-   console.log(data);
-   
+  const data = {                  //Відправляєм дані на  БЕКЕНД  ///////
+    email: email.value,
+    password: password.value,
+};
+    // console.log(data);
+    ///  Передача усіх даних з форми на відміну від elements, де ми пощтучно передаємо ////
+    const formData = new FormData(event.currentTarget);
+    formData.forEach((value, name) => {
+      console.log(`onFormSubmit->name:`, name);
+      console.log(`onFormSubmit->value:`, value);
+    });
+  //////////////////////////////////////////
+  
+  
+  const probaEl = document.querySelector(".proba1");  // Виводимио дані логіна і паролю на екран
+  probaEl.append(...email.value)
+  probaEl.append(...password.value)
+  
   if (!data.email || !data.password)
     {
         alert('всі поля повинні бути заповнені..');
-        return;
+        return ;
     }
    formEl.reset()
 
@@ -45,7 +57,59 @@ function onKey(evt) {
   }
 }
 
+//////////////////////////
+const inputEl = document.querySelector('#name-input');
+const spanEl = document.querySelector('#name-output');
+const licenseCheckbox = document.querySelector('.js-license');
+const btn = document.querySelector('.js-button');
+licenseCheckbox.addEventListener('change', onLicenseChange);
+
+inputEl.addEventListener('input', () => {    ////добавляєм слухача на інпут////
+    spanEl.textContent=inputEl.value      /////текстовий контент спану повинен = значенню інпута/////
+});
+function onLicenseChange(event) {
+  console.log('ghjgj');
+  console.log(event.currentTarget.checked);
+  
+  btn.disabled = !event.currentTarget.checked;// кнопка виключена коли не чекнутий чекбокс
+}
+
 ////////////////////////////END form//////////////////////////
+////////////Відкрити, Закрити Модалку/////////////
+const refs = {
+  openModalBtn: document.querySelector('[data-action="open-modal"]'),
+  closeModalBtn: document.querySelector('[data-action="close-modal"]'),
+  backdrop: document.querySelector('.js-backdrop'),
+};
+refs.openModalBtn.addEventListener('click', onOpenModal);
+refs.closeModalBtn.addEventListener('click', onCloseModal)
+refs.backdrop.addEventListener('click',onBackdropClick)
+function onOpenModal() {
+  window.addEventListener('keydown', onEscKeyPress);
+  document.body.classList.add('show-modal');  // Вішаєм на Боді клас, можна і на Бекдроп
+}
+function onCloseModal() {
+  window.removeEventListener('keydown', onEscKeyPress);
+  document.body.classList.remove('show-modal');
+}
+function onBackdropClick(event) {
+  // console.log('Клик по backdrop');
+
+  console.log(event.currentTarget);
+  console.log(event.target);
+
+  if (event.currentTarget === event.target) {
+    console.log('Кликнули саме в backdrop');
+    onCloseModal();                    // Закриваїм модалку клацавши по Бекдропу
+  }
+}
+function onEscKeyPress(event) {
+  console.log(event);//закриваємо Esk
+  if(event.code==='Escape'){ 
+    onCloseModal()
+    }
+}
+////////////********END****Відкрити, Закрити Модалку/////////////
 ////робота з картинкою/////
 // const image = document.querySelector(".image");
 

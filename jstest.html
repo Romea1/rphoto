@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 
-<body>
+<body >
 
     <button class="jsbutton" style=" padding:10px; font-size:30px">без перезавант.сорінки</button>
 <div class="js-container container" style="width: 50px; height: 50px;background-color: blueviolet;"></div>
@@ -30,8 +30,165 @@
         Password
         <input type="password" name="password" />
     </label>
-    <button type="submit">Login</button>
+    <button type="submit">Login</button>  
+    </button>
 </form>
+
+<br>
+
+<form action="">
+        <input type="text" id="name-input" placeholder="Please enter your name" />
+        <p>
+            <label for="">
+                <input type="checkbox" class="js-license">
+                Прийняти умови договору
+            </label>
+        </p>  
+            <button type="submit" disabled class="js-button">
+                 <h1>Hello, <span id="name-output">Anonymous</span>!
+                 </h1>
+            </button>     
+      
+</form>
+
+<div class="proba1">
+</div>
+
+<br>
+
+<table class="transaction-table js-transaction-table" border="2">
+    <thead>
+    <tr>
+        <th>email</th>
+        <th>password</th>
+        <th> кількість</th>
+        <th>ціна</th>
+        <th>дата</th>
+        <th>Тип</th>
+        <th>№ рахунку</th>
+    </tr>
+    <caption align="top">таблиця 1.</caption>
+    </thead>
+    <tbody>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+    </tr> 
+    <!-- <tr>
+        <td> </td>
+        <td> </td>
+        <td>3</td>
+        <td>45</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>картопля</td>
+        <td>6</td>
+        <td>15</td>
+    </tr>  -->
+</tbody>
+ 
+</table>
+
+<!-- <button class="button" data-action="open-modal">Відкрити модалку</button> 
+<div class="backdrop js-backdrop">
+    <div class="modal">
+        <h2>Modal window</h2>
+        <p>
+            Audi (Німецька: [ˈʔaʊ̯diː ˈʔaːˈgeː] ( прослухати), лат. Audi; укр. Ауді, Авді[2]) — з 1909 року німецький
+            виробник
+            автомобілів. Штаб-квартира розташована в місті Інгольштадт. У 1928 році компанію купує Йорген Расмуссен.
+            Нині компанія
+            займається виготовленням престижних автомобілів.
+
+            Витоки компанії сягають початку XX століття, коли початкові підприємства (Horch і Audiwerke), засновані
+            інженером
+            Августом Горхом, і два інших виробники (DKW і Wanderer), об'єднуються в компанію Auto Union 1932 року.
+            Сучасна епоха
+            Audi почалася в 1960-х роках, коли Auto Union придбала компанія Volkswagen у фірми Daimler-Benz. Після
+            перезапуску
+            бренду Audi із введенням в 1965 році серії Audi F103 Volkswagen об'єднав Auto Union з NSU Motorenwerke в
+            1969 році,
+            створюючи таким чином сучасну компанію.
+
+            Назва компанії базується на латинському перекладі прізвища засновника Августа Горха. «Горх», що означає
+            «слухай»
+            німецькою мовою, стає «audi» латинською мовою. Чотири кільця логотипу Audi представляють одну з чотирьох
+            автомобільних
+            компаній, які об'єдналися для створення попередника Audi — Auto Union. Гасло Audi — «Vorsprung durch
+            Technik», що
+            означає «Прогрес через технології». Однак Audi USA використовувала гасло «Правда — в інженерії» з 2007 по
+            2016 рік, а з
+            2016 року взагалі не використовувала слоган. Audi разом з BMW та Mercedes-Benz є одними з найкращих марок
+            розкішних
+            автомобілів у світі.
+        </p>
+        <button type="button" class="button" data-action="close-modal">Закрити</button>
+    </div>
+</div>  -->
+<br>
+<button class="button" data-action="open-modal">Відкрити модалку</button>
+<div class="backdrop js-backdrop " data-modal>
+    <div class="modal">
+
+        <button type="button" class="modal-close-btn" data-action="close-modal" >
+            <svg class="modal-close-icon" width="11" height="11">
+                <use href="./images/sprite.svg#icon-close">
+                </use>
+            </svg>
+        </button>
+        <form class="form" autocomplete="off">
+            <p class="form-title">Залиште свої дані, ми вам передзвонимо</p>
+            <label class="form-name" for="name">Ім'я</label>
+            <div class="form-field">
+                <input class="contact-form" type="text" name="name" id="name" placeholder="" autofocus>
+                <svg class="contact-form-img" width="12" height="12">
+                    <use href="./images/sprite.svg#icon-form-name">
+                    </use>
+                </svg>
+            </div>
+
+            <label class="form-name" for="tel">Телефон</label>
+            <div class="form-field">
+                <input class="contact-form" type="tel" name="tel" id="tel" placeholder="">
+                <svg class="contact-form-img" width="13" height="13">
+                    <use href="./images/sprite.svg#icon-form-tel">
+                    </use>
+                </svg>
+            </div>
+            <label class="form-name" for="mail">Пошта</label>
+            <div class="form-field">
+                <input class="contact-form" type="email" name="email" id="mail" autocomplete="on">
+                <svg class="contact-form-img" width="15" height="12">
+                    <use href="./images/sprite.svg#icon-form-mail">
+                    </use>
+                </svg>
+            </div>
+            <label class="form-name" for="comment"> Коментар</label>
+            <div class="form-field">
+                <textarea class="comment" name="comment" id="comment" placeholder="Введіть текст"></textarea>
+            </div>
+
+            <div class="contact-form-checkbox">
+                <label class="form-name-chk" for="accept-policy">
+                    <input class="checkbox" type="checkbox" name="policy" id="accept-policy">
+                    <svg class="contact-form-chk" width="16" height="15">
+                        <use href="./images/sprite.svg#icon-form-checkbox">
+                        </use>
+                    </svg>
+                    Погоджуюся з розсилкою та приймаю <a href="" class="form-policy">
+                        Умови договору</a></label>
+            </div>
+            <button class="form-button" type="submit">Відправити</button>
+        </form>
+    </div>
+</div>
+
 
 
     <script defer src="./js/jstestscript.js" type="module"></script>

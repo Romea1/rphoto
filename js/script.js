@@ -259,7 +259,8 @@ function onSubmitHandler (event) {
 const favoriteList = document.querySelector('.js-favorite-list');
 list.addEventListener('click', onClick);  //Додали слухача на клік li
  function onClick(event) {
-  //  console.log(event.currentTarget);
+    // console.log(event.currentTarget);
+ 
   
    if (event.target.classList.contains('js-favorite')) {
      event.target.classList.add('js-favorite-active'); // Робим шоб зірочка була активна, додаємо клас з іншим кольором
@@ -273,7 +274,8 @@ list.addEventListener('click', onClick);  //Додали слухача на к�
      //але в нас вже проблема з назвати, тому ми деструктуризуємо як id і змінимо назву на carID. І вказуємо що наш carId має співпадати з тим id по якому ми клікнули(carId === Number(id))
      //Але дата атрибут нам завжди повертає рядок тому потрібно приводити до числа(Number(id) )
      addFavorite(`${car}${type}`)
-  
+      console.log(event.currentTarget);
+     console.log(event.target)  
  }
   }
 function addFavorite(currentCar) {
